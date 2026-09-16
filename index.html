@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>把论文写在大地上——记西槐庄科技小院暑期实践之行</title>
+<meta name="description" content="2026年夏天，我们走进北京通州永乐店镇西槐庄村，探访让百年萝卜村焕发新生的科技小院。" />
+
+<!-- 分享到微信 / QQ / 微博时显示的卡片信息 -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="智探乡村 · 数述风华" />
+<meta property="og:title" content="把论文写在大地上——记西槐庄科技小院暑期实践之行" />
+<meta property="og:description" content="2026年夏天，我们走进北京通州永乐店镇西槐庄村，探访让百年萝卜村焕发新生的科技小院。" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%8C%B1%3C/text%3E%3C/svg%3E" />
+
+<style>
+/* ============================================================
+   全局设计变量
+   主色调：田野绿（生机）+ 丰收暖黄（土地）
+   ============================================================ */
+:root{
+  --green-900:#13471f;   /* 最深绿：标题/强调 */
+  --green-800:#1a5521;
+  --green-700:#23602a;
+  --green-500:#3a7c38;   /* 主绿 */
+  --green-400:#579849;
+  --green-300:#78ab63;
+  --green-200:#9bbd85;
+  --green-100:#d3e6c9;
+  --green-050:#eef5e9;
+  --gold:#e3a62f;        /* 丰收暖黄 */
+  --gold-soft:#f6d48a;
+  --gold-dark:#b9821f;
+  --cream:#faf6ec;       /* 米白背景 */
+  --paper:#fffdf7;       /* 卡片纸色 */
+  --ink:#22302a;         /* 正文深墨绿 */
+  --ink-soft:#5a6b60;
+  --muted:#8a978d;
+  --line:rgba(35,96,42,.14);
+  --shadow:0 10px 30px rgba(30,80,40,.10);
+  --radius:18px;
+  --maxw:1120px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,"PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.85;
+  overflow-x:hidden;
+}
+img,video{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--gold-soft);color:var(--green-900)}
+
+h1,h2,h3{font-family:"Songti SC","Noto Serif SC",Georgia,"STSong",serif;font-weight:700;line-height:1.3}
+
+/* ---------------- 顶部导航 ---------------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px max(24px,calc((100vw - var(--maxw))/2));
+  background:rgba(250,246,236,.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  transition:box-shadow .3s;
+}
+.nav.scrolled{box-shadow:0 4px 18px rgba(30,80,40,.10)}
+.nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--green-900);letter-spacing:.5px}
+.nav .brand .seed{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--green-400),var(--green-700));color:#fff;display:grid;place-items:center;font-size:18px}
+.nav ul{display:flex;gap:26px;list-style:none}
+.nav a{padding:4px 2px;font-size:15px;color:var(--ink-soft);border-bottom:2px solid transparent;transition:.25s}
+.nav a:hover{color:var(--green-700);border-bottom-color:var(--gold)}
+.nav .toggle{display:none;background:none;border:0;font-size:22px;color:var(--green-900);cursor:pointer}
+
+/* ---------------- 通用小节 ---------------- */
+section{padding:88px max(24px,calc((100vw - var(--maxw))/2))}
+.section-head{max-width:760px;margin:0 auto 46px;text-align:center}
+.section-head .tag{
+  display:inline-block;font-size:13px;letter-spacing:4px;color:var(--gold-dark);
+  background:var(--gold-soft);padding:5px 16px;border-radius:999px;margin-bottom:14px;
+}
+.section-head h2{font-size:clamp(28px,4vw,38px);color:var(--green-900);margin-bottom:14px}
+.section-head p{color:var(--ink-soft);font-size:16px}
+
+.lead{color:var(--ink-soft);font-size:17px}
+.container{max-width:var(--maxw);margin:0 auto}
+
+/* ---------------- 板块一 · 封面 ---------------- */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;
+  padding:120px max(24px,calc((100vw - var(--maxw))/2)) 70px;
+  background:
+    radial-gradient(900px 500px at 85% -10%,rgba(243,212,138,.5),transparent 60%),
+    linear-gradient(160deg,#eaf4e2 0%,#f4efdd 48%,#fbf3df 100%);
+  overflow:hidden;
+}
+/* 背景里的麦浪纹理 */
+.hero::before{
+  content:"";position:absolute;inset:auto 0 0 0;height:46%;
+  background:
+    repeating-linear-gradient(100deg,transparent 0 70px,rgba(120,171,99,.10) 70px 74px),
+    repeating-linear-gradient(80deg,transparent 0 90px,rgba(227,166,47,.10) 90px 94px);
+  -webkit-mask-image:linear-gradient(transparent,#000);
+          mask-image:linear-gradient(transparent,#000);
+}
+.hero .inner{position:relative;z-index:2;max-width:760px}
+.hero .badge{
+  display:inline-flex;align-items:center;gap:8px;font-size:14px;letter-spacing:2px;
+  color:var(--green-800);background:#fff;border:1px solid var(--line);
+  padding:7px 16px;border-radius:999px;margin-bottom:26px;box-shadow:var(--shadow);
+}
+.hero h1{
+  font-size:clamp(34px,6vw,58px);color:var(--green-900);
+  margin-bottom:10px;text-wrap:balance;
+}
+.hero .sub{font-size:clamp(18px,3vw,24px);color:var(--gold-dark);font-family:inherit;font-weight:600;margin-bottom:26px}
+.hero .theme{
+  font-size:15px;letter-spacing:8px;color:var(--ink-soft);margin-bottom:34px;
+}
+.hero .lead{max-width:600px;margin-bottom:40px;font-size:17px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:999px;
+  font-size:15px;font-weight:600;transition:.25s;cursor:pointer;border:0;
+}
+.btn-green{background:linear-gradient(135deg,var(--green-500),var(--green-700));color:#fff;box-shadow:0 8px 20px rgba(58,124,56,.35)}
+.btn-green:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(58,124,56,.4)}
+.btn-ghost{background:#fff;color:var(--green-800);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-dark);transform:translateY(-2px)}
+
+/* 主视觉图（占位） */
+.hero-photo{
+  margin-top:52px;border-radius:var(--radius);overflow:hidden;position:relative;
+  box-shadow:0 20px 50px rgba(30,80,40,.22);border:6px solid #fff;
+}
+.hero-photo figcaption{
+  position:absolute;left:14px;bottom:14px;background:rgba(19,71,31,.72);color:#fff;
+  font-size:13px;padding:6px 14px;border-radius:999px;backdrop-filter:blur(4px);
+}
+.scroll-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;color:var(--ink-soft);font-size:13px;letter-spacing:3px;animation:bob 2s infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+/* ---------------- 板块二 · 初识 ---------------- */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
+.split.flip .txt{order:2}
+.split .txt h3{font-size:24px;color:var(--green-900);margin-bottom:16px}
+.split .txt p{margin-bottom:14px}
+.split .txt .hl{color:var(--green-700);font-weight:700}
+.split figure{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:4px solid #fff}
+.split figcaption{font-size:13px;color:var(--muted);text-align:center;padding:8px 6px 2px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:46px;margin-top:56px}
+
+/* 数据卡片（KPI） */
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:60px}
+.kpi .tile{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 22px;text-align:center;box-shadow:var(--shadow);transition:.3s;
+}
+.kpi .tile:hover{transform:translateY(-4px)}
+.kpi .tile .num{font-size:34px;font-weight:800;color:var(--green-700);line-height:1.1;font-variant-numeric:tabular-nums}
+.kpi .tile .num b{font-size:17px;font-weight:700}
+.kpi .tile .arrow{color:var(--gold-dark)}
+.kpi .tile .lab{font-size:14px;color:var(--ink-soft);margin-top:8px}
+
+/* 收入增长柱状图（单序列 · 绿色顺序渐变） */
+.chart-card{
+  margin-top:46px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:34px clamp(20px,4vw,44px);display:grid;
+  grid-template-columns:1.35fr 1fr;gap:36px;align-items:center;
+}
+.chart-card .side h3{font-size:22px;color:var(--green-900);margin-bottom:12px}
+.chart-card .side p{font-size:15px;color:var(--ink-soft);margin-bottom:10px}
+.chart-title{font-size:15px;font-weight:600;color:var(--green-900);margin-bottom:4px}
+.chart-sub{font-size:13px;color:var(--muted);margin-bottom:22px}
+.plot{
+  position:relative;height:300px;border-bottom:2px solid #c3c2b7;
+  display:flex;align-items:flex-end;gap:2px;padding:0 6px;
+}
+.bar-wrap{flex:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%;position:relative}
+.bar{
+  width:100%;max-width:24px;margin:0 auto;border-radius:4px 4px 0 0;/* 顶部4px圆角、底部方角 */
+  height:0;transition:height 1.1s cubic-bezier(.22,.9,.3,1);
+}
+.bar .val{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(100% + 6px);
+  font-size:13px;font-weight:700;color:var(--ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+.bar .y{position:absolute;left:50%;transform:translateX(-50%);top:calc(100% + 8px);
+  font-size:12.5px;color:var(--ink-soft)}
+.bar.hot{box-shadow:0 6px 16px rgba(227,166,47,.35)}
+.bar.hot .val{color:var(--gold-dark);font-size:14.5px}
+.bar.hot .val::after{content:" ↑";}
+.bar.hot .mark{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(100% + 26px);
+  font-size:11px;color:var(--gold-dark);white-space:nowrap;background:var(--gold-soft);
+  padding:2px 8px;border-radius:999px}
+/* 六根柱子对应的顺序色（越新越深，已通过对比度/色觉校验） */
+.c20{background:#9bbd85}.c21{background:#78ab63}.c22{background:#579849}
+.c23{background:#3a7c38}.c24{background:#23602a}.c25{background:#13471f}
+
+/* ---------------- 板块三 · 探索 ---------------- */
+.tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:46px}
+.tech{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 24px;box-shadow:var(--shadow);transition:.3s;position:relative;overflow:hidden;
+}
+.tech:hover{transform:translateY(-5px)}
+.tech::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+  background:linear-gradient(var(--green-400),var(--gold))}
+.tech .ico{font-size:30px;line-height:1}
+.tech h4{font-size:18px;color:var(--green-900);margin:12px 0 8px}
+.tech p{font-size:14.5px;color:var(--ink-soft)}
+
+/* 问题—方案 对比块 */
+.qa{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:46px}
+.qa .card{border-radius:var(--radius);padding:28px 26px;border:1px solid var(--line)}
+.qa .card h4{font-size:18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.qa .prob{background:#fff4ec;border-color:#f0cfb4}
+.qa .prob h4{color:#b04a1a}
+.qa .sol{background:linear-gradient(160deg,#eaf4e2,#f7f0dc);border-color:var(--green-200)}
+.qa .sol h4{color:var(--green-700)}
+.qa p{font-size:14.5px;color:var(--ink-soft);margin-bottom:10px}
+.qa .sol ul{list-style:none}
+.qa .sol li{padding-left:22px;position:relative;font-size:14.5px;color:var(--ink-soft);margin-bottom:8px}
+.qa .sol li::before{content:"✓";position:absolute;left:0;color:var(--green-500);font-weight:700}
+
+/* 进步指示条（商品率 60→85%） */
+.gauge{margin-top:30px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px clamp(20px,4vw,40px);box-shadow:var(--shadow)}
+.gauge .row{display:flex;justify-content:space-between;font-size:14px;color:var(--ink-soft);margin-bottom:6px}
+.gauge .track{position:relative;height:22px;background:#eee7d8;border-radius:999px;overflow:visible}
+.gauge .fill{position:absolute;left:0;top:0;bottom:0;border-radius:999px;width:0;
+  background:linear-gradient(90deg,var(--green-300),var(--green-600));transition:width 1.4s .2s cubic-bezier(.22,.9,.3,1)}
+.gauge .dot{position:absolute;top:50%;transform:translate(-50%,-50%);width:30px;height:30px;border-radius:50%;
+  background:#fff;border:3px solid var(--green-500);display:grid;place-items:center;font-size:11px;font-weight:800;color:var(--green-800);
+  box-shadow:0 2px 8px rgba(0,0,0,.15);left:0;transition:left 1.4s .2s cubic-bezier(.22,.9,.3,1)}
+.gauge .note{margin-top:12px;font-size:13.5px;color:var(--ink-soft)}
+
+/* ---------------- 板块四 · 对话 ---------------- */
+.timeline{position:relative;margin:46px auto 0;max-width:760px;padding-left:10px}
+.timeline::before{content:"";position:absolute;left:17px;top:6px;bottom:6px;width:3px;border-radius:3px;
+  background:linear-gradient(var(--green-400),var(--gold))}
+.tl-item{position:relative;padding:0 0 34px 60px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:10px;top:4px;width:17px;height:17px;border-radius:50%;
+  background:#fff;border:4px solid var(--green-500)}
+.tl-item:last-child::before{border-color:var(--gold)}
+.tl-item time{font-size:13px;color:var(--gold-dark);letter-spacing:2px;font-weight:700}
+.tl-item h4{font-size:19px;color:var(--green-900);margin:2px 0 6px}
+.tl-item p{font-size:15px;color:var(--ink-soft)}
+
+.narrow2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:46px}
+.narrow2 figure{border-radius:var(--radius);overflow:hidden;border:4px solid #fff;box-shadow:var(--shadow)}
+.narrow2 figcaption{font-size:13px;color:var(--muted);text-align:center;padding:8px 6px 2px}
+
+/* 小队感悟卡片 */
+.team{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
+.member{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px 26px;box-shadow:var(--shadow);position:relative}
+.member::before{content:"“";position:absolute;top:2px;left:16px;font-size:70px;color:var(--gold-soft);font-family:Georgia,serif;line-height:1}
+.member .who{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.member .ava{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--green-400),var(--gold));color:#fff;
+  display:grid;place-items:center;font-weight:700;font-size:17px}
+.member .who b{color:var(--green-900);font-size:16px}
+.member .who span{display:block;font-size:12.5px;color:var(--muted);font-weight:400}
+.member p{font-size:14.5px;color:var(--ink-soft)}
+
+.quote{
+  margin:56px auto 0;max-width:820px;text-align:center;background:var(--green-900);color:#fff;
+  border-radius:var(--radius);padding:40px 36px;position:relative;overflow:hidden;
+}
+.quote::before{content:"“";position:absolute;left:18px;top:-24px;font-size:150px;color:rgba(255,255,255,.14);font-family:Georgia,serif}
+.quote p{font-size:clamp(17px,2.4vw,21px);line-height:1.9;font-family:"Songti SC","Noto Serif SC",serif}
+.quote cite{display:block;margin-top:16px;font-style:normal;font-size:13px;color:var(--gold-soft);letter-spacing:2px}
+
+/* ---------------- 板块五 · 结语 ---------------- */
+.future{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+.future figure{border-radius:var(--radius);overflow:hidden;border:4px solid #fff;box-shadow:var(--shadow)}
+.commit{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+.commit .c{text-align:center;padding:28px 20px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.commit .c .n{width:54px;height:54px;margin:0 auto 14px;border-radius:16px;background:linear-gradient(135deg,var(--green-500),var(--green-700));
+  color:#fff;display:grid;place-items:center;font-size:15px;font-weight:800;letter-spacing:1px}
+.commit .c h4{font-size:18px;color:var(--green-900);margin-bottom:8px}
+.commit .c p{font-size:14px;color:var(--ink-soft)}
+
+.thanks{margin-top:56px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:32px 30px;box-shadow:var(--shadow)}
+.thanks h3{font-size:20px;color:var(--green-900);margin-bottom:12px}
+.thanks p{font-size:15px;color:var(--ink-soft)}
+
+/* ---------------- Vlog ---------------- */
+.vlog{margin-top:64px}
+.vlog .video-box{position:relative;border-radius:var(--radius);overflow:hidden;border:6px solid #fff;
+  box-shadow:var(--shadow);background:#0d1f13}
+.vlog .play{position:absolute;inset:0;display:grid;place-items:center;background:rgba(19,71,31,.28);transition:.3s}
+.vlog .play .tri{width:0;height:0;border-left:34px solid #fff;border-top:22px solid transparent;border-bottom:22px solid transparent;filter:drop-shadow(0 4px 8px rgba(0,0,0,.3))}
+.vlog .video-box:hover .play{background:rgba(19,71,31,.18)}
+.vlog .cap{text-align:center;font-size:13px;color:var(--muted);margin-top:10px}
+
+/* ---------------- 页脚 ---------------- */
+footer{background:var(--green-900);color:#cfe3c9;padding:40px max(24px,calc((100vw - var(--maxw))/2));text-align:center}
+footer .brand{font-size:18px;color:#fff;font-weight:700;letter-spacing:3px;margin-bottom:8px}
+footer p{font-size:13.5px;line-height:2}
+footer a{color:var(--gold-soft)}
+#topBtn{position:fixed;right:22px;bottom:22px;width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;
+  background:linear-gradient(135deg,var(--green-500),var(--green-700));color:#fff;font-size:18px;
+  box-shadow:0 8px 20px rgba(30,80,40,.3);opacity:0;pointer-events:none;transition:.3s;z-index:90}
+#topBtn.show{opacity:1;pointer-events:auto}
+
+/* ---------------- 滚动显现动画 ---------------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ---------------- 响应式 ---------------- */
+@media (max-width:900px){
+  .split,.chart-card,.future{grid-template-columns:1fr}
+  .split.flip .txt{order:0}
+  .grid2,.qa,.narrow2{grid-template-columns:1fr}
+  .tech-grid,.kpi{grid-template-columns:repeat(2,1fr)}
+  .team,.commit{grid-template-columns:1fr}
+  .nav ul{position:fixed;inset:64px 0 auto;flex-direction:column;background:var(--paper);
+    padding:18px 24px;gap:14px;border-bottom:1px solid var(--line);display:none;box-shadow:var(--shadow)}
+  .nav ul.open{display:flex}
+  .nav .toggle{display:block}
+  section{padding:70px 20px}
+}
+@media (max-width:560px){
+  .kpi,.tech-grid{grid-template-columns:1fr}
+  .hero h1{font-size:32px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= 顶部导航 ================= -->
+<nav class="nav" id="nav">
+  <div class="brand"><span class="seed">🌱</span>智探乡村 · 数述风华</div>
+  <button class="toggle" id="menuBtn" aria-label="菜单">☰</button>
+  <ul id="menu">
+    <li><a href="#home">首页</a></li>
+    <li><a href="#intro">初识</a></li>
+    <li><a href="#explore">探索</a></li>
+    <li><a href="#dialogue">对话</a></li>
+    <li><a href="#future">结语</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- ================= 板块一 · 首页·封面与导语 ================= -->
+<section class="hero" id="home">
+  <div class="inner">
+    <span class="badge">📍 2026 暑期社会实践 · 北京通州 · 永乐店镇 · 西槐庄村</span>
+    <h1>把论文写在大地上</h1>
+    <div class="sub">—— 记西槐庄科技小院暑期实践之行</div>
+    <div class="theme">智探乡村 · 数述风华</div>
+    <p class="lead">
+      2026年夏天，我们走进北京通州永乐店镇西槐庄村，探访了一个让百年萝卜村焕发新生的“科技小院”。
+      在这里，我们亲眼见证了知识如何扎根土地，青春如何赋能乡村振兴。
+    </p>
+    <div class="cta">
+      <a class="btn btn-green" href="#intro">开始探索 ↓</a>
+      <a class="btn btn-ghost" href="#vlog">🎬 观看实践 Vlog</a>
+    </div>
+  </div>
+
+  <!-- 图片 1 已接入：images/01-门口合影.webp -->
+  <figure class="hero-photo">
+    <img src="images/01-门口合影.webp" alt="我们在西槐庄科技小院门口的合影" width="1600" height="1200" loading="eager" fetchpriority="high">
+    <figcaption>🌱 我们在西槐庄科技小院门口的合影</figcaption>
+  </figure>
+
+  <div class="scroll-hint">▼ 向下滚动</div>
+</section>
+
+<!-- ================= 板块二 · 初识·西槐庄与科技小院 ================= -->
+<section id="intro">
+  <div class="section-head">
+    <span class="tag">板块二 · 初识</span>
+    <h2>西槐庄，与扎根这里的科技小院</h2>
+    <p>从一个“集体经济薄弱村”，到一个萝卜畅销京城的“明星村”，改变从一座小院开始。</p>
+  </div>
+
+  <div class="container">
+    <!-- 村庄的过去 -->
+    <div class="split">
+      <div class="txt reveal">
+        <h3>村庄的过去：百年萝卜村，也曾被“困住”</h3>
+        <p>西槐庄村地处京郊，<span class="hl">拥有百年萝卜种植历史</span>，村域面积1880亩、辖232户。然而过去很长一段时间，它却是典型的<span class="hl">“集体经济薄弱村”</span>：产业单一、以传统萝卜种植为主，土地利用率低，萝卜多为自留种、口感差、销路难，大量耕地撂荒，村集体收入<span class="hl">一度仅有 11 万元</span>。</p>
+        <p>“科技小院”的建成，让这个村庄第一次有了自己的“智囊团”。</p>
+      </div>
+      <!-- 图片 2 已接入：images/02-村庄老照片.webp -->
+      <figure class="reveal">
+        <img src="images/02-村庄老照片.webp" alt="曾经的西槐庄村" width="853" height="500" loading="lazy" decoding="async">
+        <figcaption>曾经的西槐庄村</figcaption>
+      </figure>
+    </div>
+
+    <!-- 科技小院的诞生 -->
+    <div class="split flip" style="margin-top:56px">
+      <!-- 图片 3 已接入：images/03-小院挂牌.webp -->
+      <figure class="reveal">
+        <img src="images/03-小院挂牌.webp" alt="西槐庄科技小院挂牌成立" width="1280" height="708" loading="lazy" decoding="async">
+        <figcaption>2020年11月11日 · 西槐庄科技小院揭牌</figcaption>
+      </figure>
+      <div class="txt reveal">
+        <h3>科技小院的诞生：“统农049号”</h3>
+        <p><span class="hl">2020年11月11日</span>，在<span class="hl">北京市委统战部牵头、联合中国农业大学</span>等多方支持下，西槐庄科技小院正式挂牌成立，编号<span class="hl">“统农049号”</span>，采用<span class="hl">“高校 + 政府 + 村集体”</span>的协同模式。</p>
+        <p>研究生们驻扎村庄，把实验室搬到田间地头，以<span class="hl">“零距离、零门槛、零时差、零费用”</span>的四零服务扎根一线，与村集体共建“西槐庄园”品牌，探索科技精准扶贫、助力乡村振兴的新路径。</p>
+        <!-- 图片 4 已接入：images/04-种植区全景.webp -->
+        <figure style="margin-top:18px;border-radius:14px;overflow:hidden;border:3px solid #fff;box-shadow:var(--shadow)">
+          <img src="images/04-种植区全景.webp" alt="今日西槐庄村全景" width="537" height="615" loading="lazy" decoding="async">
+          <figcaption style="font-size:12px;color:var(--muted);text-align:center;padding-top:6px">今日西槐庄村</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- 数据成效 KPI -->
+    <div class="kpi reveal">
+      <div class="tile"><div class="num"><span class="cnt" data-n="11">0</span>万 <span class="arrow">→</span> <span class="cnt" data-n="163">0</span><b>万</b></div><div class="lab">村集体收入增长（2020→2025）</div></div>
+      <div class="tile"><div class="num"><span class="cnt" data-n="110">0</span><b>万元</b></div><div class="lab">萝卜单品年销售额</div></div>
+      <div class="tile"><div class="num"><span class="cnt" data-n="20">0</span><b>余种</b></div><div class="lab">引进果蔬新品种</div></div>
+      <div class="tile"><div class="num"><span class="cnt" data-n="10">0</span><b>余项</b></div><div class="lab">引进先进农业技术</div></div>
+    </div>
+
+    <!-- 收入增长柱状图 -->
+    <div class="chart-card reveal">
+      <div>
+        <div class="chart-title">📈 村集体经济收入逐年攀升</div>
+        <div class="chart-sub">单位：万元 · 2020—2025 · 数据来源：西槐庄科技小院</div>
+        <!-- 柱状图：单序列，绿色顺序渐变（越新越深），全部柱子顶部标注数值 -->
+        <div class="plot" id="incomeChart" role="img" aria-label="2020至2025年村集体收入柱状图，分别为11、34、70、103、152、163万元">
+          <div class="bar-wrap"><div class="bar c20"><span class="val">11</span><span class="y">2020</span></div></div>
+          <div class="bar-wrap"><div class="bar c21"><span class="val">34</span><span class="y">2021</span></div></div>
+          <div class="bar-wrap"><div class="bar c22"><span class="val">70</span><span class="y">2022</span></div></div>
+          <div class="bar-wrap"><div class="bar c23"><span class="val">103</span><span class="y">2023</span></div></div>
+          <div class="bar-wrap"><div class="bar c24"><span class="val">152</span><span class="y">2024</span></div></div>
+          <div class="bar-wrap"><div class="bar c25 hot"><span class="val">163</span><span class="mark">↑ 增长近15倍</span><span class="y">2025</span></div></div>
+        </div>
+      </div>
+      <div class="side">
+        <h3>一组数字，读懂巨变</h3>
+        <p>村集体收入从 <b style="color:var(--green-700)">11 万元</b>增长至 <b style="color:var(--gold-dark)">163 万元</b>，增长近 <b>15 倍</b>。</p>
+        <p>2024年萝卜单品销售额达 <b style="color:var(--green-700)">110 万元</b>，30亩萝卜卖出18万斤；2025年萝卜销售额更突破 <b style="color:var(--green-700)">130 万元</b>，全年总销售额突破 <b style="color:var(--gold-dark)">163 万元</b>。</p>
+        <p>累计引进 <b>20余个</b>新品种、<b>10余项</b>新技术，成功打造“<b>西槐庄园</b>”品牌——田园山水美如画，西槐魅力传天下。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 板块三 · 探索·科技如何赋能农业 ================= -->
+<section id="explore" style="background:#f4f1e6">
+  <div class="section-head">
+    <span class="tag">板块三 · 探索</span>
+    <h2>走进大棚：科技如何“长出”庄稼</h2>
+    <p>品种、水肥、授粉、防虫……我们把参观学习看到的每一处细节，都记在心里。</p>
+  </div>
+
+  <div class="container">
+    <!-- 图片 5 已接入：images/05-大棚设施.webp -->
+    <figure class="reveal" style="border-radius:var(--radius);overflow:hidden;border:4px solid #fff;box-shadow:var(--shadow);max-width:860px;margin:0 auto">
+      <img src="images/05-大棚设施.webp" alt="大棚里的绿色种植设施" width="692" height="500" loading="lazy" decoding="async">
+      <figcaption style="text-align:center;font-size:13px;color:var(--muted);padding-top:8px">大棚里的绿色科技：水肥一体化 / 黄板 / 熊蜂箱</figcaption>
+    </figure>
+
+    <!-- 技术卡片 -->
+    <div class="tech-grid">
+      <div class="tech reveal"><div class="ico">💧</div><h4>水肥一体化</h4><p>滴灌施肥精准节本，试验平均一种作物一季可节省人工与投入约4500元，让番茄提质增效。</p></div>
+      <div class="tech reveal"><div class="ico">🐝</div><h4>熊蜂授粉</h4><p>替代人工授粉，坐果更均匀、果实更饱满，是棚室果蔬提质的好帮手。</p></div>
+      <div class="tech reveal"><div class="ico">🟨</div><h4>黄板物理防虫</h4><p>以物理方式诱捕蚜虫等害虫，明显减少农药使用，让蔬菜更绿色安全。</p></div>
+      <div class="tech reveal"><div class="ico">🧪</div><h4>测土配方施肥</h4><p>先测土、再配肥，缺什么补什么，肥效更高、土地负担更小。</p></div>
+      <div class="tech reveal"><div class="ico">📡</div><h4>虫情与环境监测</h4><p>虫情测报灯、环境监测设备全天候“站岗”，让研究生们对田间动态了如指掌。</p></div>
+      <div class="tech reveal"><div class="ico">🌽</div><h4>特色品种矩阵</h4><p>冰淇淋萝卜、鲜食玉米、樱桃番茄、网纹甜瓜……20余个新品种相继落地。</p></div>
+    </div>
+
+    <!-- 特色品种 -->
+    <div class="grid2" style="margin-top:20px">
+      <!-- 图片 6 已接入：images/06-冰淇淋萝卜.webp -->
+      <figure class="reveal" style="border-radius:var(--radius);overflow:hidden;border:4px solid #fff;box-shadow:var(--shadow)">
+        <img src="images/06-冰淇淋萝卜.webp" alt="冰淇淋萝卜" width="361" height="520" loading="lazy" decoding="async">
+        <figcaption style="text-align:center;font-size:13px;color:var(--muted);padding-top:8px">招牌“冰淇淋萝卜”</figcaption>
+      </figure>
+      <div class="reveal" style="align-self:center">
+        <h3 style="font-size:22px;color:var(--green-900);margin-bottom:12px">“冰淇淋萝卜”是怎么变好吃的？</h3>
+        <p style="color:var(--ink-soft);font-size:15px;margin-bottom:10px">西槐庄最出圈的明星产品，是那根脆甜冰爽的<b>“冰淇淋萝卜”</b>。它来自团队不断试种选育的水果萝卜新品系，配合鲜食玉米、水果番茄等，撑起了“西槐庄园”的品牌货架。</p>
+        <p style="color:var(--ink-soft);font-size:15px">但好吃不等于好卖——种植中一度出现严重的<b>裂根问题</b>，逼着研究生们走进大棚，开始一场“萝卜保卫战”。</p>
+      </div>
+    </div>
+
+    <!-- 问题 → 方案 -->
+    <div class="qa">
+      <div class="card prob reveal">
+        <h4>⚠️ 发现的生产难题</h4>
+        <p>大面积种植冰淇淋萝卜时，<b>裂根问题严重</b>：萝卜开裂、卖相受损，商品率一度只有 <b>60%</b>，直接影响销售与口碑。</p>
+        <p>农户们着急，研究生们更着急——必须找到“治根”的办法。</p>
+      </div>
+      <div class="card sol reveal">
+        <h4>💡 小院给出的“药方”</h4>
+        <ul>
+          <li>创新<b>“钾硅配施作基肥、叶面追施钙硼肥”</b>方案，提升萝卜抗寒抗旱与细胞壁强度；</li>
+          <li>试验证明：萝卜<b>裂根率下降13%</b>，产量提高12.2%～22.1%；</li>
+          <li>商品率由 <b>60% 提升至 85% 以上</b>，30亩萝卜卖出18万斤、销售110万元。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 商品率指示条 -->
+    <div class="gauge reveal">
+      <div class="row"><span>冰淇淋萝卜商品率（推广前 → 推广后）</span><span>60% → 85%+</span></div>
+      <div class="track" id="gaugeTrack">
+        <div class="fill" id="gaugeFill"></div>
+        <div class="dot" id="gaugeDot">85%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 板块四 · 对话·青春的田野与我们的思考 ================= -->
+<section id="dialogue">
+  <div class="section-head">
+    <span class="tag">板块四 · 对话</span>
+    <h2>青春的田野：我们眼中的一天与一群人</h2>
+    <p>驻院研究生们“自找苦吃”的日常、村民态度的转变，还有我们小队的思考。</p>
+  </div>
+
+  <div class="container">
+    <!-- 驻院研究生的一天 -->
+    <h3 style="font-size:22px;color:var(--green-900);margin-bottom:6px">驻院研究生的一天</h3>
+    <p style="color:var(--ink-soft);font-size:15px;margin-bottom:6px">这是我们在小院了解到的一日节奏——忙碌、充实，也让人动容：</p>
+    <div class="timeline">
+      <div class="tl-item reveal"><time>清晨 06:30</time><h4>进棚指导</h4><p>趁露水未干，钻进大棚查看苗情，指导农户当天的水肥管理，一棚一棚地走。</p></div>
+      <div class="tl-item reveal"><time>上午 09:00</time><h4>整理数据</h4><p>把测得的土壤、水肥、长势数据录入台账，比对试验组与对照组，为方案优化找依据。</p></div>
+      <div class="tl-item reveal"><time>下午 14:00</time><h4>入户回访</h4><p>挨家挨户回访种植户，解答难题、记录反馈，把“技术”送到炕头田边。</p></div>
+      <div class="tl-item reveal"><time>晚上 20:00</time><h4>查阅资料</h4><p>村民白天抛来的新问题，晚上变成书桌上的资料与笔记，常常熬到深夜。</p></div>
+    </div>
+
+    <!-- 两张配图 -->
+    <div class="narrow2">
+      <!-- 图片 7 已接入：images/07-清晨进棚.webp -->
+      <figure class="reveal"><img src="images/07-清晨进棚.webp" alt="清晨进棚指导" width="1099" height="999" loading="lazy" decoding="async"><figcaption>清晨进棚指导</figcaption></figure>
+      <!-- 图片 8 已接入：images/08-入户回访.webp -->
+      <figure class="reveal"><img src="images/08-入户回访.webp" alt="入户回访" width="600" height="400" loading="lazy" decoding="async"><figcaption>入户回访</figcaption></figure>
+    </div>
+
+    <!-- 村民态度的转变 -->
+    <div class="split flip" style="margin-top:56px">
+      <!-- 图片 9 已接入：images/09-与村民交流.webp -->
+      <figure class="reveal">
+        <img src="images/09-与村民交流.webp" alt="与村民的交流" width="929" height="697" loading="lazy" decoding="async">
+        <figcaption>与村民的交流</figcaption>
+      </figure>
+      <div class="txt reveal">
+        <h3>从“学生娃娃能种地？”到“学生师傅”</h3>
+        <p>小院刚来时，有村民嘀咕：<i>“学生娃娃能种地？”</i>——种了半辈子地的老把式，很难信服一群初出茅庐的研究生。</p>
+        <p>但一季又一季，裂根少了、产量高了、萝卜好卖了，村民的态度也在悄悄转变。如今，种植户们把驻院研究生称作最受欢迎的<span class="hl">“学生师傅”</span>，种地前先来“问一句”，成了西槐庄的新习惯。</p>
+        <p>这让我们真切地明白：科技小院不只是一处试验站，更是一根把技术稳稳“接住”的接力棒。</p>
+      </div>
+    </div>
+
+    <!-- 小队感悟 -->
+    <h3 style="font-size:22px;color:var(--green-900);margin-top:60px">我们小队的感悟</h3>
+    <div class="team">
+      <!-- 【队员感悟 1】请替换为真实队员姓名与感悟 -->
+      <div class="member reveal">
+        <div class="who"><span class="ava">林</span><b>小林<span>队员 · 文案组</span></b></div>
+        <p>亲眼看到那根冰淇淋萝卜，我才相信“把论文写在大地上”不是一句口号。知识一旦在土里扎根，就真的能长出金子般的果实。</p>
+      </div>
+      <div class="member reveal">
+        <div class="who"><span class="ava">陈</span><b>小陈<span>队员 · 摄影组</span></b></div>
+        <p>镜头里最动人的画面，是研究生清晨蹲在垄边查看苗情的样子。他们比我拍过的任何风景都“好看”——因为那是青春最好的样子。</p>
+      </div>
+      <div class="member reveal">
+        <div class="who"><span class="ava">周</span><b>小周<span>队员 · 调研组</span></b></div>
+        <p>从村民那句“学生娃娃能种地”到一声“学生师傅”，我看到了信任如何被实干一点点挣来。农业技术要落得下、接得住，人才行。</p>
+      </div>
+      <div class="member reveal">
+        <div class="who"><span class="ava">吴</span><b>小吴<span>队员 · 视频组</span></b></div>
+        <p>剪辑vlog时我反复看那些素材：黄板、熊蜂、滴灌管、裂根的萝卜和笑起来的村民。科技兴农四个字，第一次有了具体的画面与温度。</p>
+      </div>
+    </div>
+
+    <!-- 习总书记回信引用 -->
+    <div class="quote reveal">
+      <p>“走进乡土中国深处，才深刻理解什么是实事求是、怎么去联系群众。青年人就要‘自找苦吃’。”</p>
+      <cite>——2023年5月1日 · 习近平总书记给中国农业大学科技小院学生的回信</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 板块五 · 结语·未来的种子 ================= -->
+<section id="future" style="background:#f4f1e6">
+  <div class="section-head">
+    <span class="tag">板块五 · 结语</span>
+    <h2>未来的种子，正在这片土地发芽</h2>
+    <p>一次实践，一粒种子。我们把见闻装进行囊，也把志向种进心里。</p>
+  </div>
+
+  <div class="container">
+    <div class="future">
+      <div class="reveal">
+        <h3 style="font-size:24px;color:var(--green-900);margin-bottom:16px">西槐庄样本：可复制的振兴经验</h3>
+        <p style="color:var(--ink-soft);font-size:16px;margin-bottom:14px">西槐庄科技小院的成功，验证了<span class="hl">“高校 + 政府 + 村集体”</span>协同模式的生命力：从治裂根、引品种、做品牌，到建冷库、开直播、办研学，走出了一条可复制、可借鉴的科技兴农之路。</p>
+        <p style="color:var(--ink-soft);font-size:16px">它也把科研与乡土紧紧绑在一起，让农大师生在这里解民生、治学问，让小小的西槐庄成为乡村振兴的生动注脚。</p>
+      </div>
+      <!-- 图片 10 已接入：images/10-小队合影.webp -->
+      <figure class="reveal">
+        <img src="images/10-小队合影.webp" alt="我们小队的合影" width="1600" height="900" loading="lazy" decoding="async">
+        <figcaption style="text-align:center;font-size:13px;color:var(--muted);padding-top:8px">我们小队在田野里的合影</figcaption>
+      </figure>
+    </div>
+
+    <!-- 行动与承诺 -->
+    <h3 style="font-size:22px;color:var(--green-900);margin-top:56px;text-align:center">我们的行动与承诺</h3>
+    <p style="text-align:center;color:var(--ink-soft);font-size:15px;margin-top:4px">牢记暑期社会实践“受教育、长才干、作贡献”的主题</p>
+    <div class="commit">
+      <div class="c reveal"><div class="n">受教育</div><h4>读懂乡土</h4><p>走进田野，真正理解“三农”与国之大者的分量。</p></div>
+      <div class="c reveal"><div class="n">长才干</div><h4>练好本领</h4><p>把课堂知识拿到田间检验，练就服务乡村振兴的真本事。</p></div>
+      <div class="c reveal"><div class="n">作贡献</div><h4>接续奋斗</h4><p>立下服务“三农”、贡献青春的志向，未来学成而归、报效乡土。</p></div>
+    </div>
+
+    <!-- 致谢 -->
+    <div class="thanks reveal">
+      <h3>🙏 致谢</h3>
+      <p>衷心感谢学校与老师们的悉心组织与指导，感谢西槐庄村和村集体的热情接待，感谢西槐庄科技小院的驻院研究生们为我们带来这段宝贵的学习经历。愿我们都能做一粒好的种子，把论文写在大地上。</p>
+    </div>
+
+    <!-- 结语配图 -->
+    <!-- 【图片占位 11】请替换为希望的田野/田间远景照片 -->
+    <figure class="reveal" style="border-radius:var(--radius);overflow:hidden;border:4px solid #fff;box-shadow:var(--shadow);margin-top:46px">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9Ijc2MCIgdmlld0JveD0iMCAwIDEyMDAgNzYwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZTlmNWU0Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmJmMGQ0Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNzYwIiBmaWxsPSJ1cmwoI2JnKSIvPjxjaXJjbGUgY3g9IjkzMCIgY3k9IjE3MCIgcj0iODUiIGZpbGw9IiNmN2M5NDgiIG9wYWNpdHk9IjAuOSIvPjxwYXRoIGQ9Ik0wIDYwMCBRMjYwIDQ3MCA1NjAgNTg1IFQxMjAwIDU1NSBMMTIwMCA3NjAgTDAgNzYwIFoiIGZpbGw9IiM2ZmFlNTQiIG9wYWNpdHk9IjAuNTUiLz48cmVjdCB4PSI0MCIgeT0iNjQwIiB3aWR0aD0iMjYiIGhlaWdodD0iMTAwIiByeD0iMTMiIGZpbGw9IiM2ZmFlNTQiIG9wYWNpdHk9IjAuNSIvPjxyZWN0IHg9IjEwNCIgeT0iNjQwIiB3aWR0aD0iMjYiIGhlaWdodD0iMTAwIiByeD0iMTMiIGZpbGw9IiM5YmQzOGMiIG9wYWNpdHk9IjAuNSIvPjxyZWN0IHg9IjE2OCIgeT0iNjQwIiB3aWR0aD0iMjYiIGhlaWdodD0iMTAwIiByeD0iMTMiIGZpbGw9IiM2ZmFlNTQiIG9wYWNpdHk9IjAuNSIvPjxyZWN0IHg9IjIzMiIgeT0iNjQwIiB3aWR0aD0iMjYiIGhlaWdodD0iMTAwIiByeD0iMTMiIGZpbGw9IiM5YmQzOGMiIG9wYWNpdHk9IjAuNSIvPjxyZWN0IHg9IjI5NiIgeT0iNjQwIiB3aWR0aD0iMjYiIGhlaWdodD0iMTAwIiByeD0iMTMiIGZpbGw9IiM2ZmFlNTQiIG9wYWNpdHk9IjAuNSIvPjxyZWN0IHg9IjM2MCIgeT0iNjQwIiB3aWR0aD0iMjYiIGhlaWdodD0iMTAwIiByeD0iMTMiIGZpbGw9IiM5YmQzOGMiIG9wYWNpdHk9IjAuNSIvPjxyZWN0IHg9IjQyNCIgeT0iNjQwIiB3aWR0aD0iMjYiIGhlaWdodD0iMTAwIiByeD0iMTMiIGZpbGw9IiM2ZmFlNTQiIG9wYWNpdHk9IjAuNSIvPjxyZWN0IHg9IjQ4OCIgeT0iNjQwIiB3aWR0aD0iMjYiIGhlaWdodD0iMTAwIiByeD0iMTMiIGZpbGw9IiM5YmQzOGMiIG9wYWNpdHk9IjAuNSIvPjxyZWN0IHg9IjU1MiIgeT0iNjQwIiB3aWR0aD0iMjYiIGhlaWdodD0iMTAwIiByeD0iMTMiIGZpbGw9IiM2ZmFlNTQiIG9wYWNpdHk9IjAuNSIvPjxyZWN0IHg9IjYxNiIgeT0iNjQwIiB3aWR0aD0iMjYiIGhlaWdodD0iMTAwIiByeD0iMTMiIGZpbGw9IiM5YmQzOGMiIG9wYWNpdHk9IjAuNSIvPjxyZWN0IHg9IjY4MCIgeT0iNjQwIiB3aWR0aD0iMjYiIGhlaWdodD0iMTAwIiByeD0iMTMiIGZpbGw9IiM2ZmFlNTQiIG9wYWNpdHk9IjAuNSIvPjxyZWN0IHg9Ijc0NCIgeT0iNjQwIiB3aWR0aD0iMjYiIGhlaWdodD0iMTAwIiByeD0iMTMiIGZpbGw9IiM5YmQzOGMiIG9wYWNpdHk9IjAuNSIvPjxyZWN0IHg9IjgwOCIgeT0iNjQwIiB3aWR0aD0iMjYiIGhlaWdodD0iMTAwIiByeD0iMTMiIGZpbGw9IiM2ZmFlNTQiIG9wYWNpdHk9IjAuNSIvPjxyZWN0IHg9Ijg3MiIgeT0iNjQwIiB3aWR0aD0iMjYiIGhlaWdodD0iMTAwIiByeD0iMTMiIGZpbGw9IiM5YmQzOGMiIG9wYWNpdHk9IjAuNSIvPjxyZWN0IHg9IjkzNiIgeT0iNjQwIiB3aWR0aD0iMjYiIGhlaWdodD0iMTAwIiByeD0iMTMiIGZpbGw9IiM2ZmFlNTQiIG9wYWNpdHk9IjAuNSIvPjxyZWN0IHg9IjEwMDAiIHk9IjY0MCIgd2lkdGg9IjI2IiBoZWlnaHQ9IjEwMCIgcng9IjEzIiBmaWxsPSIjOWJkMzhjIiBvcGFjaXR5PSIwLjUiLz48cmVjdCB4PSIxMDY0IiB5PSI2NDAiIHdpZHRoPSIyNiIgaGVpZ2h0PSIxMDAiIHJ4PSIxMyIgZmlsbD0iIzZmYWU1NCIgb3BhY2l0eT0iMC41Ii8+PHJlY3QgeD0iMTEyOCIgeT0iNjQwIiB3aWR0aD0iMjYiIGhlaWdodD0iMTAwIiByeD0iMTMiIGZpbGw9IiM5YmQzOGMiIG9wYWNpdHk9IjAuNSIvPjxwYXRoIGQ9Ik0wIDY4MCBRMzIwIDU2MCA2NjAgNjY1IFQxMjAwIDY1MCBMMTIwMCA3NjAgTDAgNzYwIFoiIGZpbGw9IiM5YmQzOGMiIG9wYWNpdHk9IjAuNyIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYwMCwyOTApIiBvcGFjaXR5PSIwLjI4Ij48cmVjdCB4PSItNDQiIHk9Ii0yNiIgd2lkdGg9Ijg4IiBoZWlnaHQ9IjYwIiByeD0iMTAiIGZpbGw9IiM3YTZhNGYiLz48cmVjdCB4PSItMjAiIHk9Ii0zNCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjEyIiByeD0iMyIgZmlsbD0iIzdhNmE0ZiIvPjxjaXJjbGUgY3g9IjAiIGN5PSI0IiByPSIxNCIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjN2E2YTRmIiBzdHJva2Utd2lkdGg9IjUiLz48L2c+PHRleHQgeD0iNjAwIiB5PSI0MjAiIGZvbnQtZmFtaWx5PSJNaWNyb3NvZnQgWWFIZWksc2Fucy1zZXJpZiIgZm9udC1zaXplPSI0NiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMxZjNkMjMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuWbvueJh+WNoOS9jSDCtyDlvoXmm7/mjaI8L3RleHQ+PHRleHQgeD0iNjAwIiB5PSI0ODYiIGZvbnQtZmFtaWx5PSJNaWNyb3NvZnQgWWFIZWksc2Fucy1zZXJpZiIgZm9udC1zaXplPSIzMCIgZmlsbD0iIzRhNmI0ZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+5biM5pyb55qE55Sw6YeOPC90ZXh0Pjx0ZXh0IHg9IjYwMCIgeT0iNTM1IiBmb250LWZhbWlseT0iTWljcm9zb2Z0IFlhSGVpLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjEiIGZpbGw9IiM4YTdhNWMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPue7k+ivrSDCtyDmiororrrmloflhpnlnKjlpKflnLDkuIo8L3RleHQ+PC9zdmc+" alt="希望的田野" />
+      <figcaption style="text-align:center;font-size:13px;color:var(--muted);padding-top:8px">希望的田野（占位图）</figcaption>
+    </figure>
+
+    <!-- ================= Vlog 视频区 ================= -->
+    <div class="vlog" id="vlog">
+      <div class="video-box reveal" id="videoBox">
+        <!-- 图片 12 已接入：images/vlog.mp4 -->
+        <video id="vlogPlayer" controls preload="metadata" poster="images/vlog-poster.jpg" width="960" height="544">
+          <source src="images/vlog.mp4" type="video/mp4">
+          您的浏览器不支持 video 标签，可<a href="images/vlog.mp4">点此下载观看</a>。
+        </video>
+      </div>
+      <p class="cap">🎬 实践 Vlog：走进西槐庄科技小院</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= 页脚 ================= -->
+<footer>
+  <div class="brand">🌱 智探乡村 · 数述风华</div>
+  <p>2026 暑期社会实践 · 把论文写在大地上 —— 记西槐庄科技小院暑期实践之行</p>
+  <p>本网页为静态演示页，文中数据与引语参考西槐庄科技小院公开资料整理。</p>
+</footer>
+
+<!-- 回到顶部 -->
+<button id="topBtn" aria-label="回到顶部">↑</button>
+
+<script>
+/* ================= 导航交互 ================= */
+const nav = document.getElementById('nav');
+const menu = document.getElementById('menu');
+const menuBtn = document.getElementById('menuBtn');
+addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', scrollY > 30);
+  topBtn.classList.toggle('show', scrollY > 600);
+});
+menuBtn.addEventListener('click', () => menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+/* ================= 滚动显现动画 ================= */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ================= 柱状图生长动画 ================= */
+/* 收入数据（万元）：2020=11, 2021=34, 2022=70, 2023=103, 2024=152, 2025=163 */
+const bars = document.querySelectorAll('#incomeChart .bar');
+const MAX = 163;
+const vals = [11, 34, 70, 103, 152, 163];
+const chartIO = new IntersectionObserver((es) => {
+  es.forEach(e => {
+    if (!e.isIntersecting) return;
+    bars.forEach((b, i) => {
+      /* 柱子高度 = 数值/最大值 的百分比，预留顶部数值标签空间 */
+      b.style.height = (vals[i] / MAX * 100 * 0.9 + 6) + '%';
+    });
+    chartIO.unobserve(e.target);
+  });
+}, { threshold: 0.35 });
+chartIO.observe(document.getElementById('incomeChart'));
+
+/* ================= 商品率指示条动画（60% → 85%） ================= */
+const gaugeIO = new IntersectionObserver((es) => {
+  es.forEach(e => {
+    if (!e.isIntersecting) return;
+    document.getElementById('gaugeFill').style.width = '85%';
+    document.getElementById('gaugeDot').style.left = '85%';
+    gaugeIO.unobserve(e.target);
+  });
+}, { threshold: 0.4 });
+gaugeIO.observe(document.getElementById('gaugeTrack'));
+
+/* ================= 数字滚动（KPI） ================= */
+const cntIO = new IntersectionObserver((es) => {
+  es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = +el.dataset.n;
+    const t0 = performance.now(), dur = 1400;
+    (function tick(now) {
+      const p = Math.min((now - t0) / dur, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))); /* easeOutCubic */
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
+    cntIO.unobserve(el);
+  });
+}, { threshold: 0.6 });
+document.querySelectorAll('.cnt').forEach(el => cntIO.observe(el));
+
+/* ================= 回到顶部 ================= */
+topBtn.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+
+</script>
+</body>
+</html>
