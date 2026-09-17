@@ -46,6 +46,7 @@ CAPTION_CLEANUPS = [
     ("入户回访（占位图）", "入户回访"),
     ("与村民的交流（占位图）", "与村民的交流"),
     ("我们小队在田野里的合影（占位图）", "我们小队在田野里的合影"),
+    ("希望的田野（占位图）", "希望的田野"),
     ("🎬 实践 Vlog：走进西槐庄科技小院（此处为占位封面，请替换为你们拍摄的视频）", "🎬 实践 Vlog：走进西槐庄科技小院"),
 ]
 
@@ -78,12 +79,16 @@ def main() -> int:
     for path in sorted(IMAGES.glob("[0-9][0-9]-*.webp")):
         photos[int(path.name[:2])] = path
 
+    # 图片位编号优先看占位注释里的数字（<!-- 【图片占位 11】… -->）：
+    # 以后补图时哪怕只剩一两处占位，也不会错配成第 1 张照片。
+    comment_index = re.compile(r"【图片占位 (\d+)】")
     counter = {"n": 0}
     filled: dict[int, str] = {}
 
     def replace_img(match: re.Match) -> str:
         counter["n"] += 1
-        index = counter["n"]
+        before = comment_index.findall(html[: match.start()])
+        index = int(before[-1]) if before else counter["n"]
         tag = match.group(0)
         alt = ALT.search(tag)
         alt_text = alt.group(1) if alt else ""
